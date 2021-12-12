@@ -1,0 +1,46 @@
+<!-- Config file for Enemy2-->
+
+<config>
+
+    <image source="Enemy2_Tileset.png" width="1024" height="1024" w="252" h="242" />
+
+  <EnemySettings>
+    
+    <StartingPose>
+      <Level1 position.x="580" position.y="1400" />
+      <Level2 position.x="200" position.y="1080" />
+    </StartingPose>
+    
+    <Collider  w="60" h="90"/>
+    <Velocity initial_velocity.x="5.5" initial_velocity.y="8" velocity.x="3" velocity.y="3"/>
+    <Detection_Range det_x="600" det_y="400" det_exp_x="200" det_exp_y="200" />
+    
+  </EnemySettings>
+
+<!--ANIMATIONS-->
+  <AnimationCoords>
+
+    <Idle loop="true" speed="0.17">
+      <Pushback x="0" y="0" w="252" h="242"/>
+      <Pushback x="252" y="0" w="252" h="242"/>
+      <Pushback x="504" y="0" w="252" h="242"/>
+      <Pushback x="756" y="0" w="252" h="242"/>
+      <Pushback x="0" y="242" w="252" h="242"/>
+      <Pushback x="252" y="242" w="252" h="242"/>
+      <Pushback x="504" y="242" w="252" h="242"/>
+      <Pushback x="756" y="242" w="252" h="242"/>
+    </Idle>
+    <Dead loop="true" speed="0.25">
+     <Pushback x="504" y="726" w="252" h="242"/>
+    </Dead>
+    <Exploding loop="true" speed="0.15">
+      <Pushback x="0" y="484" w="252" h="242"/>
+      <Pushback x="252" y="484" w="252" h="242"/>
+      <Pushback x="504" y="484" w="252" h="242"/>
+      <Pushback x="756" y="484" w="252" h="242"/>
+      <Pushback x="0" y="726" w="252" h="242"/>
+      <Pushback x="252" y="726" w="252" h="242"/>
+    
+    </Exploding>	
+  </AnimationCoords>
+</config>

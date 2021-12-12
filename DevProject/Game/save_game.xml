@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<game_state>
+	<input />
+	<window />
+	<textures />
+	<audio />
+	<map />
+	<pathfinding />
+	<scene />
+	<entities>
+		<player>
+			<player x="873" y="1285" life="5" />
+		</player>
+		<Enemy posX="1896" posY="1126" />
+		<Enemy posX="3449" posY="1097" />
+		<Enemy posX="5329" posY="615" />
+		<Enemy posX="6713" posY="758" />
+		<Enemy posX="2759" posY="1607" />
+		<Enemy posX="3449" posY="1097" />
+		<Enemy posX="4100" posY="1440" />
+		<Enemy posX="5813" posY="758" />
+		<Objects />
+		<Objects />
+		<Objects />
+		<Objects />
+		<Objects />
+		<Objects />
+		<Objects />
+		<Objects />
+		<Objects />
+		<Objects />
+		<Objects />
+		<Objects />
+	</entities>
+	<Particles />
+	<Collisions />
+	<Fade />
+	<renderer>
+		<camera x="-504" y="-1072" />
+	</renderer>
+</game_state>

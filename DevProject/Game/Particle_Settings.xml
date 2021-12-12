@@ -1,0 +1,53 @@
+<!-- Config file for Particles-->
+
+<config>
+
+    <image source="Particles.png" width="1024" height="1024"/>
+
+<!--ANIMATIONS-->
+  <Particle_Pushbacks>
+
+    <Blood loop="true" speed="0.17">
+      <Pushback x="0" y="0" w="114" h="114"/>
+      <Pushback x="114" y="0" w="114" h="114"/>
+      <Pushback x="342" y="0" w="114" h="114"/>
+      <Pushback x="456" y="0" w="114" h="114"/>
+      <Pushback x="570" y="0" w="114" h="114"/>
+      <Pushback x="684" y="0" w="114" h="114"/>
+ 
+    </Blood>
+
+    <Player_Kunai loop="true" speed="0.15">
+      <Pushback x="0" y="114" w="138" h="22"/>
+      <Pushback x="138" y="114" w="138" h="22"/>
+      <Pushback x="276" y="114" w="138" h="22"/>
+      <Pushback x="414" y="114" w="138" h="22"/>
+      <Pushback x="552" y="114" w="138" h="22"/>
+    </Player_Kunai>
+
+    <Enemy_Kunai loop="false" speed="0.15">
+      <Pushback x="0" y="158" w="120" h="34"/>
+      <Pushback x="120" y="158" w="120" h="34"/>
+      <Pushback x="240" y="158" w="120" h="34"/>
+      <Pushback x="360" y="158" w="120" h="34"/>
+    </Enemy_Kunai>
+   
+    <Player_Shot_Kunai loop="false" speed="0.15">
+      <Pushback x="0" y="192" w="112" h="109"/>
+      <Pushback x="112" y="192" w="112" h="109"/>
+      <Pushback x="224" y="192" w="112" h="109"/>
+      <Pushback x="336" y="192" w="112" h="109"/>
+      <Pushback x="448" y="192" w="112" h="109"/>
+    </Player_Shot_Kunai>
+	
+    <Explosion loop="false" speed="0.25">
+      <Pushback x="0" y="301" w="229" h="217"/>
+      <Pushback x="229" y="301" w="229" h="217"/>
+      <Pushback x="458" y="301" w="229" h="217"/>
+      <Pushback x="687" y="301" w="229" h="217"/>
+      <Pushback x="0" y="301" w="229" h="217"/>
+      <Pushback x="229" y="518" w="229" h="217"/>
+    </Explosion>
+	
+  </Particle_Pushbacks>
+</config>

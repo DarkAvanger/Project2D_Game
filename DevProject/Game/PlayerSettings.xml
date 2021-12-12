@@ -1,0 +1,71 @@
+<!-- Config file for Player-->
+<config>
+
+    <image source="Character_tileset.png" width="1024" height="1024" w="102" h="80" />
+
+
+  <PlayerSettings>
+    
+    <StartingPose>
+      <Level1 position.x="580" position.y="1400" />
+    </StartingPose>
+    <Life life="70"/>
+    <Velocity velocity.x="6" velocity.y="7"/>
+    <MaxVelocity velocity.x="7" velocity.y="8"/>
+    <Acceleration a.x="0.0" a.y="0.2"/>
+    
+  </PlayerSettings>
+
+<!--ANIMATIONS-->
+  <AnimationCoords>
+
+    <Idle loop="true" speed="0.17">
+      <Pushback x="0" y="0" w="106" h="203"/>
+      <Pushback x="106" y="0" w="106" h="203"/>
+      <Pushback x="212" y="0" w="106" h="203"/>
+      <Pushback x="318" y="0" w="106" h="203"/>
+      <Pushback x="424" y="0" w="106" h="203"/>
+      <Pushback x="530" y="0" w="106" h="203"/>
+      <Pushback x="636" y="0" w="106" h="203"/>
+      <Pushback x="743" y="0" w="106" h="203"/>
+      <Pushback x="0" y="203" w="106" h="203"/>
+    </Idle>
+
+    <Run loop="true" speed="0.15">
+      <Pushback x="106" y="203" w="106" h="203"/>
+      <Pushback x="212" y="203" w="106" h="203"/>
+      <Pushback x="318" y="203" w="106" h="203"/>
+      <Pushback x="424" y="203" w="106" h="203"/>
+      <Pushback x="530" y="203" w="106" h="203"/>
+    </Run>
+
+    <Jump loop="false" speed="0.15">
+      <Pushback x="636" y="203" w="106" h="203"/>
+   
+    </Jump>
+   
+    <Fall loop="true" speed="0.15">
+      <Pushback x="743" y="203" w="106" h="203"/>
+
+    </Fall>
+	
+    <Dead loop="false" speed="0.15">
+      <Pushback x="0" y="406" w="214" h="203"/>
+      <Pushback x="214" y="406" w="214" h="203"/>
+      <Pushback x="428" y="406" w="214" h="203"/>
+      <Pushback x="642" y="406" w="214" h="203"/>
+      <Pushback x="0" y="609" w="214" h="203"/>
+    </Dead>
+
+       <Run loop="true" speed="0.15">
+         <Pushback x="397" y="610" w="200" h="88"/>
+         <Pushback x="397" y="698" w="200" h="88"/>
+         <Pushback x="397" y="786" w="200" h="88"/>
+         <Pushback x="397" y="874" w="200" h="88"/>
+         <Pushback x="597" y="610" w="200" h="88"/>
+         <Pushback x="597" y="698" w="200" h="88"/>
+      </Run>
+
+    	
+  </AnimationCoords>
+</config>

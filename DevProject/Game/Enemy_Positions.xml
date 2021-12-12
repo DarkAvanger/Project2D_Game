@@ -1,0 +1,21 @@
+<!-- Config file for EnemyPositions-->
+<config>
+<Level1>
+   <Enemy1>
+	<Position x="811" y="1268"/>
+	<Position x="2759" y="1608"/>
+	<Position x="3449" y="1097"/>
+	<Position x="4100" y="1440"/>
+	<Position x="5813" y="758"/>
+   </Enemy1>
+
+   <Enemy2>
+	<Position x="1466" y="1007"/>
+	<Position x="1896" y="1126"/>
+	<Position x="3449" y="1097"/>
+	<Position x="5329" y="615"/>
+	<Position x="6713" y="758"/>
+   </Enemy2>
+</Level1>
+
+</config>

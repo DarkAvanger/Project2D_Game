@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="App.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Audio.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Collisions.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyFlyer.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyWalker.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityManager.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Fade.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Particles.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Pathfinding.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="PerfTimer.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Render.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Textures.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="PugiXml\src\pugixml.cpp">
+      <Filter>Pugi</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Animation.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="App.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Audio.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Collisions.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Defs.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="DynArray.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyFlyer.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyWalker.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityManager.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Fade.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="List.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Log.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Module.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Particles.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Pathfinding.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="PerfTimer.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Render.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="SString.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Textures.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="PugiXml\src\pugiconfig.hpp">
+      <Filter>Pugi</Filter>
+    </ClInclude>
+    <ClInclude Include="PugiXml\src\pugixml.hpp">
+      <Filter>Pugi</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header">
+      <UniqueIdentifier>{c7a45387-f62b-4fe8-8ecc-beb87e50ac5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{30e5544e-d1f8-4ede-b289-d6cde83451cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pugi">
+      <UniqueIdentifier>{1577ab38-058d-4475-9ca4-76353002fb1f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

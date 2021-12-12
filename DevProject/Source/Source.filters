@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="PugiXml\src\pugixml.cpp">
+      <Filter>Core\Tools\Pugi</Filter>
+    </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>Core\Containers</Filter>
+    </ClCompile>
+    <ClCompile Include="PerfTimer.cpp">
+      <Filter>Core\Tools\Timers</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Core\Tools\Timers</Filter>
+    </ClCompile>
+    <ClCompile Include="App.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyFlyer.cpp">
+      <Filter>Entities\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyWalker.cpp">
+      <Filter>Entities\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Entities\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects.cpp">
+      <Filter>Entities\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Entities\General</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityManager.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Audio.cpp">
+      <Filter>Modules\Controllers\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Modules\Controllers\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Render.cpp">
+      <Filter>Modules\Controllers\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Modules\Controllers\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Fade.cpp">
+      <Filter>Modules\Controllers\Specific</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Modules\Controllers\Specific</Filter>
+    </ClCompile>
+    <ClCompile Include="Pathfinding.cpp">
+      <Filter>Modules\Controllers\Specific</Filter>
+    </ClCompile>
+    <ClCompile Include="Textures.cpp">
+      <Filter>Modules\Controllers\Specific</Filter>
+    </ClCompile>
+    <ClCompile Include="Collisions.cpp">
+      <Filter>Modules\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Particles.cpp">
+      <Filter>Modules\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Modules\Scene</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Animation.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="PugiXml\src\pugiconfig.hpp">
+      <Filter>Core\Tools\Pugi</Filter>
+    </ClInclude>
+    <ClInclude Include="PugiXml\src\pugixml.hpp">
+      <Filter>Core\Tools\Pugi</Filter>
+    </ClInclude>
+    <ClInclude Include="Defs.h">
+      <Filter>Core\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="DynArray.h">
+      <Filter>Core\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="List.h">
+      <Filter>Core\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="Log.h">
+      <Filter>Core\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>Core\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="SString.h">
+      <Filter>Core\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="PerfTimer.h">
+      <Filter>Core\Tools\Timers</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Core\Tools\Timers</Filter>
+    </ClInclude>
+    <ClInclude Include="App.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyFlyer.h">
+      <Filter>Entities\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyWalker.h">
+      <Filter>Entities\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Entities\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Entities\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects.h">
+      <Filter>Entities\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Entities\General</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityManager.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Audio.h">
+      <Filter>Modules\Controllers\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Modules\Controllers\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Render.h">
+      <Filter>Modules\Controllers\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Modules\Controllers\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Fade.h">
+      <Filter>Modules\Controllers\Specific</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Modules\Controllers\Specific</Filter>
+    </ClInclude>
+    <ClInclude Include="Pathfinding.h">
+      <Filter>Modules\Controllers\Specific</Filter>
+    </ClInclude>
+    <ClInclude Include="Textures.h">
+      <Filter>Modules\Controllers\Specific</Filter>
+    </ClInclude>
+    <ClInclude Include="Collisions.h">
+      <Filter>Modules\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Particles.h">
+      <Filter>Modules\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Modules\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Module.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Core">
+      <UniqueIdentifier>{25e89e2f-7922-4919-ba8e-63e284656071}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Containers">
+      <UniqueIdentifier>{95525257-7318-4690-9947-a565d7aa3272}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Tools">
+      <UniqueIdentifier>{017dc13e-95b8-4957-9430-7d3c1a30990d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Tools\Timers">
+      <UniqueIdentifier>{f8c01db0-1e7d-4781-a405-022818f4e529}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules">
+      <UniqueIdentifier>{2eac89d3-c96e-465b-848c-60b0d9ce42cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities">
+      <UniqueIdentifier>{a3952489-b44d-429f-950a-bbf3c4da5237}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Controllers">
+      <UniqueIdentifier>{4e489505-0d24-4020-a897-c99f949b2f88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Controllers\Specific">
+      <UniqueIdentifier>{95c86c4e-323f-443e-9b09-692cd10d8241}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Controllers\General">
+      <UniqueIdentifier>{7a069aad-f48b-4344-8c14-da31d7343e18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Physics">
+      <UniqueIdentifier>{82c4e709-6252-4121-a0fc-b1550a9ef004}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Scene">
+      <UniqueIdentifier>{520b0a0d-c3d1-44d4-b5e9-c16b3535de1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\General">
+      <UniqueIdentifier>{10472d99-7f12-4085-a29d-03072fddb85f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\Enemies">
+      <UniqueIdentifier>{e07927b7-e3ed-4e03-ae4e-aff76177ab9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Tools\Pugi">
+      <UniqueIdentifier>{e8f00850-d90c-4790-8c00-9f8f6f74de0c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
