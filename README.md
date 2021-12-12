@@ -12,4 +12,14 @@ Space -> Throw Kunai
 
 ## Debug Controls
 
-F1 ->
+F1 -> Restart Level
+
+F5 -> Save
+
+F6 -> Load
+
+F9 -> Show colliders
+
+F10 -> God Mode
+
+F11 -> Cap FPS to 30
