@@ -55,6 +55,7 @@ public:
 	uint score = 0;
 	uint coins = 0;
 	uint flyer_counter = 0;
+
 };
 
 #endif

@@ -3,8 +3,8 @@
 #include "Collisions.h"
 #include "Map.h"
 #include "Log.h"
-#include "Textures.h"
 #include "Scene.h"
+#include "Textures.h"
 
 Objects::Objects(iPoint pos, OBJECT_TYPE objType) : Entity(ENTITY_TYPE::OBJECT_ENT) { name.create("Objects"); }
 
@@ -25,6 +25,7 @@ Objects* Objects::CreateObject(iPoint pos, OBJECT_TYPE objType) {
 			pugi::xml_parse_result res = doc.load_file("Level_2_settings.xml");
 
 		pugi::xml_node node = doc.child("game_state").child("Objects");
+		//	LoadPushbacks(node, pushoff_anim);
 	}
 
 	App->entity_manager->entities_list.add(Object);

@@ -56,6 +56,8 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(entity_manager);
 	AddModule(particles);
 	AddModule(collisions);
+	AddModule(font);
+	AddModule(gui);
 	AddModule(fade);
 
 	AddModule(render);

@@ -15,10 +15,9 @@
 #include "EntityManager.h"
 #include "Enemy.h"
 #include "Player.h"
-#include "Fonts.h"
 #include "Objects.h"
+#include "Fonts.h"
 #include "Gui.h"
-
 
 Scene::Scene() : Module()
 {
@@ -49,7 +48,6 @@ bool Scene::Start()
 	pugi::xml_parse_result load_scenedoc_res = SceneDocument.load_file("config.xml");
 	music_node = SceneDocument.child("config").child("music");
 	bloodTex = App->tex->Load("gui/Blood.png");
-
 	if (load_scenedoc_res == NULL)
 		LOG("The xml file containing the music fails. Pugi error: %s", load_scenedoc_res.description());
 	
@@ -111,9 +109,10 @@ bool Scene::Start()
 
 	}
 
-	CreateUI_Elements();
+	//App->audio->ControlMUSVolume(30);
+	//App->audio->ControlSFXVolume(30);
 	App->render->ResetCamera();
-
+	CreateUI_Elements();
 	return true;
 }
 
@@ -256,11 +255,9 @@ bool Scene::PreUpdate()
 			if (UI_Item->data->Logic == WEB) {
 				if (UI_Item->data->Clicked()) {
 					if (UI_Item->data == webPageButton)
-						UI_Item->data->goWeb("https://lucho1.github.io/DevelopmentProject/");
-					else if (UI_Item->data == githubButonlucho)
-						UI_Item->data->goWeb("https://github.com/lucho1");
-					else if (UI_Item->data == githubButonRoger)
-						UI_Item->data->goWeb("https://github.com/rleonborras");
+						UI_Item->data->goWeb("https://github.com/DarkAvanger/Project2D_Game");
+					else if (UI_Item->data == githubButon)
+						UI_Item->data->goWeb("https://github.com/DarkAvanger");
 				}
 			}
 			if (UI_Item->data->Logic == QUIT) {
@@ -347,24 +344,14 @@ bool Scene::PreUpdate()
 bool Scene::Update(float dt)
 {
 
+
 	if (Change_Level) {
 
 		App->fade->Fade2(2.0f);
 
 		if (App->fade->current_step == App->fade->fade_from_black) {
-			ChangeLevel(currentLevel);
+			ChangeLevel(currentLevel, 0);
 			Change_Level = false;
-			List_item<UI_Element*>* UI_Item = UI_Elements_List.start;
-			for (; UI_Item != nullptr; UI_Item = UI_Item->next) {
-				if (UI_Item->data->toDesactive == true) {
-					UI_Item->data->isActive = false;
-					UI_Item->data->toDesactive = false;
-				}
-				else if (UI_Item->data->toActive == true) {
-					UI_Item->data->isActive = true;
-					UI_Item->data->toActive = false;
-				}
-			}
 		}
 	}
 
@@ -374,27 +361,17 @@ bool Scene::Update(float dt)
 
 		if (App->fade->current_step == App->fade->fade_from_black) {
 
-			ChangeLevel(NO_CHANGE);
+			ChangeLevel(NO_CHANGE, 0);
 			changing_same_Level = false;
 		}
 	}
 
-	if (App->input->GetKey(SDL_SCANCODE_K) == KEY_DOWN && App->entity_manager->coins >= 5)
-
-	{
+	if (App->input->GetKey(SDL_SCANCODE_F6) == KEY_DOWN) 
 		App->LoadGame("save_game.xml");
-		App->entity_manager->coins -= 5;
-		Player->life = 70;
-	}
-
 	
-	if (App->input->GetKey(SDL_SCANCODE_F6) == KEY_DOWN)
-		App->LoadGame("save_game.xml");
+
 	if(App->input->GetKey(SDL_SCANCODE_F5) == KEY_DOWN)
 		App->SaveGame("save_game.xml");
-	if (App->input->GetKey(SDL_SCANCODE_F8) == KEY_DOWN) {
-		App->gui->Debug = !App->gui->Debug;
-	}
 
 	if (App->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN && !changing_same_Level) {
 		
@@ -409,8 +386,8 @@ bool Scene::Update(float dt)
 
 	}
 
-	/*if (currentLevel == MAIN_MENU && App->input->GetKey(SDL_SCANCODE_RETURN) == KEY_DOWN && !Change_Level)
-		Change_Level = true;*/
+	if (currentLevel == MAIN_MENU && App->input->GetKey(SDL_SCANCODE_RETURN) == KEY_DOWN && !Change_Level)
+		Change_Level = true;
 
 	
 	if (App->input->GetKey(SDL_SCANCODE_F11) == KEY_DOWN) {
@@ -429,29 +406,11 @@ bool Scene::Update(float dt)
 
 		if (Player->life <= 0) {
 			if(Player->Dead.Finished())
-			ChangeLevel(LEVEL2+1);
+			ChangeLevel(LEVEL2+1, 0);
 		}
 	}
 
-	if ((currentLevel == LEVEL1 || currentLevel == LEVEL2) && Player != nullptr) {
-
-
-		if (App->input->GetKey(SDL_SCANCODE_F3) == KEY_DOWN)
-			App->entity_manager->coins++;
-
-		if (App->input->GetKey(SDL_SCANCODE_F4) == KEY_DOWN)
-			App->entity_manager->score += 10;
-
-		if (currentLevel == LEVEL1) {
-
-			int sec = (int)Level1_Timer.ReadSec() % 60;
-			int minutes = Level1_Timer.ReadSec() / 60;
-			LOG("PAUSED T1: %i", pause_time1);
-			LOG("TIMER1: %02i : %02i", minutes, sec);
-		}
-
-		App->map->Draw(current_map);
-	}
+	App->map->Draw(current_map);
 	return true;
 }
 
@@ -461,7 +420,7 @@ bool Scene::PostUpdate()
 
 	bool ret = true;
 
-	//if(App->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
+	if(App->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
 		ret = false;
 
 	return ret;
@@ -477,19 +436,19 @@ bool Scene::CleanUp()
 
 void Scene::ChangeLevel(int level_change, int increment) {
 	
-	App->entity_manager->DesrtroyEnemies();
+	App->entity_manager->CleanUp();
+	/*App->entity_manager->DesrtroyEnemies();
 
 	if(Player!=nullptr)
 		Player->entity_collider->to_delete = true;
 
 	App->entity_manager->DestroyEntity(Player);
-	RELEASE(Player);
+	RELEASE(Player);*/
 	LEVELS aux = currentLevel;
-
 
 	if (level_change != NO_CHANGE) {
 		App->collisions->CleanUp();
-		IterateLevel(level_change);
+		IterateLevel(level_change, increment);
 	}
 
 	if (pathfinding) {
@@ -510,6 +469,8 @@ void Scene::ChangeLevel(int level_change, int increment) {
 		Player->LoadPlayer("Character_tileset.png");
 
 
+		//LOAD SCENE ENEMIES
+		//Load Enemy Flyers
 		pugi::xml_parse_result Enemies_doc_res = EnemiesDocument.load_file("Enemy2_Settings.xml");
 		if (Enemies_doc_res == NULL)
 			LOG("The xml file containing the player tileset fails. Pugi error: %s", Enemies_doc_res.description());
@@ -525,10 +486,51 @@ void Scene::ChangeLevel(int level_change, int increment) {
 			LOG("The xml file containing the player tileset fails. Pugi error: %s", Enemies_doc_res2.description());
 
 		en_pos = EnemiesPositions.child("config").child("Level1").child("Enemy1");
+		LoadObjects(current_map.Filename.GetString());
+		App->collisions->AssignMapColliders(current_map.Filename.GetString());
 
 		App->entity_manager->LoadSceneEnemeies(en_pos, WALKER, "Enemy1_Tileset.png", EnemiesDocument);
 
-	
+		//	PERF_START(Level1_Timer);
+		//	Level1_Timer.StartFrom(-pause_time1);
+
+	}
+	if (currentLevel == LEVEL2) {
+
+		App->audio->PlayMusic(music_node.attribute("level").as_string());
+		App->render->camera.x = -7;
+		App->render->camera.y = -903;
+		Player = Player->CreatePlayer(iPoint(200, 1116));
+		Player->LoadPlayer("Character_tileset.png");
+
+		//LOAD SCENE ENEMIES
+		//Load Enemy Flyers
+		pugi::xml_parse_result Enemies_doc_res = EnemiesDocument.load_file("Enemy2_Settings.xml");
+		if (Enemies_doc_res == NULL)
+			LOG("The xml file containing the player tileset fails. Pugi error: %s", Enemies_doc_res.description());
+
+		pugi::xml_parse_result enemies_pos_result = EnemiesPositions.load_file("Enemy_Positions.xml");
+		en_pos = EnemiesPositions.child("config").child("Level2").child("Enemy2");
+
+		App->entity_manager->LoadSceneEnemeies(en_pos, FLYER, "Enemy2_Tileset.png", EnemiesDocument);
+
+		//Load enemy Walkers
+		pugi::xml_parse_result Enemies_doc_res2 = EnemiesDocument.load_file("Enemy1_Settings.xml");
+		if (Enemies_doc_res2 == NULL)
+			LOG("The xml file containing the player tileset fails. Pugi error: %s", Enemies_doc_res2.description());
+
+		en_pos = EnemiesPositions.child("config").child("Level2").child("Enemy1");
+
+
+		LoadObjects(current_map.Filename.GetString());
+		App->collisions->AssignMapColliders(current_map.Filename.GetString());
+
+		App->entity_manager->LoadSceneEnemeies(en_pos, WALKER, "Enemy1_Tileset.png", EnemiesDocument);
+
+
+		/*	PERF_START(Level2_Timer);
+			Level2_Timer.StartFrom(-pause_time2);*/
+
 	}
 	if (currentLevel == MAIN_MENU) {
 		App->collisions->CleanUp();
@@ -548,7 +550,10 @@ void Scene::ChangeLevel(int level_change, int increment) {
 		lifeBarBackground->isActive = false;
 
 		pausePanel->isActive = false;
+		App->audio->PlayMusic(music_node.attribute("intro2").as_string());
+
 	}
+
 	if (currentLevel == 1) {
 
 		if (pause_time1 > 0) {
@@ -561,13 +566,23 @@ void Scene::ChangeLevel(int level_change, int increment) {
 			PERF_START(Level1_Timer);
 
 	}
+	else if (currentLevel == 2) {
+
+		if (pause_time2 > 0) {
+			PERF_START(Level2_Timer);
+			Level2_Timer.StartFrom(-pause_time2);
+
+		}
+		else
+			PERF_START(Level2_Timer);
+	}
 	/*if (currentLevel!=aux) {
 		LoadObjects(current_map.Filename.GetString());
 		App->collisions->AssignMapColliders(current_map.Filename.GetString());
 	}*/
 }
 
-void Scene::IterateLevel(int level_change) {
+void Scene::IterateLevel(int level_change, int increment) {
 
 	level_change++;
 	LevelIterator = level_change;
@@ -731,6 +746,8 @@ bool Scene::Save(pugi::xml_node& data) const
 	return true;
 }
 
+
+
 void Scene::CreateUI_Elements() {
 
 	float scale = 0.8f;
@@ -766,9 +783,9 @@ void Scene::CreateUI_Elements() {
 
 	//CREDITS
 	labelCreatorsofGame = App->gui->Add_UIElement(LABEL, iPoint(90, 30), NULL_RECT, NONE_LOGIC, NULL_RECT, NULL_RECT, 0.5, None, creditsPanel, "CREATED BY");
-	labelLuchoAndRoger = App->gui->Add_UIElement(LABEL, iPoint(70, 70), NULL_RECT, NONE_LOGIC, NULL_RECT, NULL_RECT, 0.3, None, creditsPanel, "Lucho Suaya & Roger Leon");
-	githubButonlucho = App->gui->Add_UIElement(BUTTON, iPoint(90, 100), { 512,235,119,119 }, WEB, { 639,235,119,119 }, { 512,235,119,119 }, 0.6, None, creditsPanel);
-	githubButonRoger = App->gui->Add_UIElement(BUTTON, iPoint(200, 100), { 512,235,119,119 }, WEB, { 639,235,119,119 }, { 512,235,119,119 }, 0.6, None, creditsPanel);
+	labelA = App->gui->Add_UIElement(LABEL, iPoint(70, 70), NULL_RECT, NONE_LOGIC, NULL_RECT, NULL_RECT, 0.3, None, creditsPanel, "Angel Consola");
+	githubButon = App->gui->Add_UIElement(BUTTON, iPoint(90, 100), { 512,235,119,119 }, WEB, { 639,235,119,119 }, { 512,235,119,119 }, 0.6, None, creditsPanel);
+	githubButonA = App->gui->Add_UIElement(BUTTON, iPoint(200, 100), { 512,235,119,119 }, WEB, { 639,235,119,119 }, { 512,235,119,119 }, 0.6, None, creditsPanel);
 	License = App->gui->Add_UIElement(LABEL, iPoint(70, 240), NULL_RECT, NONE_LOGIC, NULL_RECT, NULL_RECT, 0.3, None, creditsPanel, "LICENSED UNDER MIT");
 	//IN GAME UI
 
@@ -840,8 +857,8 @@ void Scene::CreateUI_Elements() {
 
 	UI_Elements_List.add(gameName);
 	UI_Elements_List.add(playButton);
-	UI_Elements_List.add(githubButonlucho);
-	UI_Elements_List.add(githubButonRoger);
+	UI_Elements_List.add(githubButon);
+	UI_Elements_List.add(githubButonA);
 	UI_Elements_List.add(quitButton);
 	UI_Elements_List.add(continueButton);
 	UI_Elements_List.add(iconToSave);

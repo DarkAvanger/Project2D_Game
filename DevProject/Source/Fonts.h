@@ -43,4 +43,4 @@ public:
 };
 
 
-#endif // __FONTS_H__
+#endif // __j1FONTS_H__

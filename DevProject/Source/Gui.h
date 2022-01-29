@@ -11,9 +11,8 @@
 #include "Audio.h"
 
 
-#define CURSOR_WIDTH 2
 
-// TODO 1: Create your structure of classes
+#define CURSOR_WIDTH 2
 
 enum UI_Type {
 
@@ -160,7 +159,6 @@ public:
 
 	UI_Element* Add_UIElement(UI_Type type, iPoint position, SDL_Rect Image_Rect, Button_Logic = NONE_LOGIC, SDL_Rect Image_Rect_Active = NULL_RECT, SDL_Rect ButtonPush = NULL_RECT, float scale = 1.0f, SDL_Color Color = { 255,255,255,255 }, UI_Element* Parent = nullptr, const char* Text = nullptr);
 
-	//UI_Element* Add_UIElement(UI_Type type, iPoint position, const char* Text = nullptr, UI_Element* Parent = nullptr);
 
 	List<UI_Element*> UI_Elements_List;
 	UI_Element* last;
@@ -177,4 +175,4 @@ private:
 	SString atlas_file_name;
 };
 
-#endif // __j1GUI_H__
+#endif // __GUI_H__

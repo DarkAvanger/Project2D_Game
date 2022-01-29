@@ -7,8 +7,6 @@
 #include "Input.h"
 #include "Gui.h"
 
-
-
 Gui::Gui() : Module()
 {
 	name.create("gui");
@@ -48,7 +46,6 @@ bool Gui::Start()
 // Update all guis
 bool Gui::PreUpdate()
 {
-
 	return true;
 }
 
@@ -94,7 +91,6 @@ bool Gui::CleanUp()
 }
 
 
-// const getter for atlas
 SDL_Texture* Gui::GetAtlas() const
 {
 	return atlas;
@@ -211,7 +207,7 @@ bool UI_Element::isParent() {
 void UI_Element::Score(int score) {
 
 	char score_Text[10];
-	sprintf_s(score_Text, "%d", score); 
+	sprintf_s(score_Text, "%d", score); //warning: deprecated
 	App->font->CalcSize(score_Text, UI_Rect.w, UI_Rect.h);
 	texture = App->font->Print(score_Text);
 }
@@ -220,7 +216,7 @@ void UI_Element::Score(int score) {
 void UI_Element::Time(int time) {
 
 	char score_Text[10];
-	sprintf_s(score_Text, "%02i", time); 
+	sprintf_s(score_Text, "%02i", time); //warning: deprecated
 	App->font->CalcSize(score_Text, UI_Rect.w, UI_Rect.h);
 	texture = App->font->Print(score_Text);
 }
@@ -291,7 +287,6 @@ void UI_Element::Alert(SDL_Texture* texture, int& alpha) {
 			alphaReach = true;
 		}
 	}
-	//SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
 	SDL_SetTextureAlphaMod(texture, alpha);
 }
 

@@ -32,7 +32,6 @@ public:
 
 	OBJECT_TYPE type;
 	SDL_Texture *Obj_tex = nullptr;
-	Animation pushoff_anim;
 
 };
 

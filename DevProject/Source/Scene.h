@@ -5,11 +5,11 @@
 #include "Map.h"
 #include "Player.h"
 #include "Enemy.h"
+class UI_Element;
 
 struct SDL_Texture;
 struct MapData;
 class Player;
-class UI_Element;
 
 enum LEVELS {
 
@@ -49,10 +49,10 @@ public:
 	bool CleanUp();
 
 	//Used to iterate between Levels
-	void IterateLevel(int level_change);
+	void IterateLevel(int level_change, int increment);
 
 	//Used to change the actual level
-	void ChangeLevel(int level_change, int increment = 1);
+	void ChangeLevel(int level_change, int increment);
 
 	//Load Map Objects
 	bool LoadObjects(const char*file_name);
@@ -64,6 +64,8 @@ public:
 	bool Save(pugi::xml_node& data) const;
 
 	void CreateUI_Elements();
+
+
 
 public:
 
@@ -87,7 +89,6 @@ public:
 	Timer Level2_Timer;
 	int pause_time1 = 0;
 	int pause_time2 = 0;
-
 
 	UI_Element* gameName = nullptr;
 
@@ -167,21 +168,21 @@ public:
 	UI_Element* pausePanel = nullptr;
 	UI_Element* creditsPanel = nullptr;
 
-	UI_Element* githubButonlucho = nullptr;
-	UI_Element* icongitHubButonlucho = nullptr;
+	UI_Element* githubButon = nullptr;
+	UI_Element* icongitHubButon = nullptr;
 
-	UI_Element* githubButonRoger = nullptr;
-	UI_Element* icongitHubButonRoger = nullptr;
+	UI_Element* githubButonA = nullptr;
+	UI_Element* icongitHubButonA = nullptr;
 
 	UI_Element* iconToSave = nullptr;
 
 	UI_Element* labelCreatorsofGame = nullptr;
-	UI_Element* labelLuchoAndRoger = nullptr;
+	UI_Element* labelA = nullptr;
 	UI_Element* PathfindingProgramer = nullptr;
 	UI_Element* GUI_Programer = nullptr;
 	UI_Element* MainArtist = nullptr;
-	UI_Element* Roger = nullptr;
-	UI_Element* Lucho = nullptr;
+	UI_Element* A3 = nullptr;
+	UI_Element* A2 = nullptr;
 	UI_Element* License = nullptr;
 
 	List<UI_Element*> UI_Elements_List;
