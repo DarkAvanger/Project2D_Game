@@ -352,6 +352,17 @@ bool Scene::Update(float dt)
 		if (App->fade->current_step == App->fade->fade_from_black) {
 			ChangeLevel(currentLevel, 0);
 			Change_Level = false;
+			List_item<UI_Element*>* UI_Item = UI_Elements_List.start;
+			for (; UI_Item != nullptr; UI_Item = UI_Item->next) {
+				if (UI_Item->data->toDesactive == true) {
+					UI_Item->data->isActive = false;
+					UI_Item->data->toDesactive = false;
+				}
+				else if (UI_Item->data->toActive == true) {
+					UI_Item->data->isActive = true;
+					UI_Item->data->toActive = false;
+				}
+			}
 		}
 	}
 
@@ -364,6 +375,13 @@ bool Scene::Update(float dt)
 			ChangeLevel(NO_CHANGE, 0);
 			changing_same_Level = false;
 		}
+	}
+	if (App->input->GetKey(SDL_SCANCODE_K) == KEY_DOWN && App->entity_manager->coins >= 5) {
+
+		App->SaveGame("save_game.xml");
+		App->entity_manager->coins -= 5;
+		Player->life = 70;
+
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_F6) == KEY_DOWN) 
@@ -407,6 +425,31 @@ bool Scene::Update(float dt)
 		if (Player->life <= 0) {
 			if(Player->Dead.Finished())
 			ChangeLevel(LEVEL2+1, 0);
+		}
+	}
+
+	if ((currentLevel == LEVEL1 || currentLevel == LEVEL2) && Player != nullptr) {
+
+
+		if (App->input->GetKey(SDL_SCANCODE_F3) == KEY_DOWN)
+			App->entity_manager->coins++;
+
+		if (App->input->GetKey(SDL_SCANCODE_F4) == KEY_DOWN)
+			App->entity_manager->score += 10;
+
+		if (currentLevel == LEVEL1) {
+
+			int sec = (int)Level1_Timer.ReadSec() % 60;
+			int minutes = Level1_Timer.ReadSec() / 60;
+			LOG("PAUSED T1: %i", pause_time1);
+			LOG("TIMER1: %02i : %02i", minutes, sec);
+		}
+		else if (currentLevel == LEVEL2) {
+
+			int sec = (int)Level2_Timer.ReadSec() % 60;
+			int minutes = Level2_Timer.ReadSec() / 60;
+			LOG("PAUSED T2: %i", pause_time2);
+			LOG("TIMER2: %02i : %02i", minutes, sec);
 		}
 	}
 

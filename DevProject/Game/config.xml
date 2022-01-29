@@ -30,6 +30,6 @@
   
   <gui>
     <atlas file="gui/1.png"/>
-  </gui>	
+  </gui>
 
 </config>
