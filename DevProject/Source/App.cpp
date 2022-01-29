@@ -40,7 +40,7 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	particles = new Particles();
 	fade = new Fade();
 	entity_manager = new EntityManager();
-	font = new Fonts();
+	//font = new Fonts();
 	gui = new Gui();
 	fade = new Fade();
 

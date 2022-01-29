@@ -30,6 +30,7 @@ bool Fonts::Awake(pugi::xml_node& conf)
 	}
 	else
 	{
+		LOG("SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError());
 		const char* path = conf.child("default_font").attribute("file").as_string(DEFAULT_FONT);
 		int size = 50;
 		default = Load(path, size);
@@ -73,7 +74,7 @@ TTF_Font* const Fonts::Load(const char* path, int size)
 }
 
 // Print text using font
-SDL_Texture* Fonts::Print(const char* text, SDL_Color color, TTF_Font* font)
+/*SDL_Texture* Fonts::Print(const char* text, SDL_Color color, TTF_Font* font)
 {
 	SDL_Texture* ret = NULL;
 	SDL_Surface* surface = TTF_RenderText_Blended((font) ? font : default, text, color);
@@ -89,10 +90,10 @@ SDL_Texture* Fonts::Print(const char* text, SDL_Color color, TTF_Font* font)
 	}
 
 	return ret;
-}
+}*/
 
-// calculate size of a text
-bool Fonts::CalcSize(const char* text, int& width, int& height, _TTF_Font* font) const
+
+/*bool Fonts::CalcSize(const char* text, int& width, int& height, _TTF_Font* font) const
 {
 	bool ret = false;
 
@@ -102,4 +103,4 @@ bool Fonts::CalcSize(const char* text, int& width, int& height, _TTF_Font* font)
 		ret = true;
 
 	return ret;
-}
+}*/

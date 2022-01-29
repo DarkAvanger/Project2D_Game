@@ -52,6 +52,9 @@ public:
 	bool do_logic;
 	bool do_enemies_logic;
 
+	uint score = 0;
+	uint coins = 0;
+	uint flyer_counter = 0;
 };
 
 #endif

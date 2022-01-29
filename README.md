@@ -18,6 +18,8 @@ F5 -> Save
 
 F6 -> Load
 
+F8 -> Debug Ui
+
 F9 -> Show colliders
 
 F10 -> God Mode

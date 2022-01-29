@@ -26,12 +26,13 @@ public:
 
 	Objects* CreateObject(iPoint pos, OBJECT_TYPE objType);
 
-
+	void LoadPushbacks(pugi::xml_node node, Animation& animation);
 
 public:
 
 	OBJECT_TYPE type;
 	SDL_Texture *Obj_tex = nullptr;
+	Animation pushoff_anim;
 
 };
 

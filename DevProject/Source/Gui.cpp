@@ -127,11 +127,11 @@ UI_Element* Gui::Add_UIElement(UI_Type type, iPoint position, SDL_Rect Image_Rec
 	else if (type == LABEL) {
 
 		ret = new UI_Element(type, position, logic, Text, Parent);
-		ret->texture = App->font->Print(Text, Color);
+		//ret->texture = App->font->Print(Text, Color);
 
 		ret->UI_Rect.x = 0;
 		ret->UI_Rect.y = 0;
-		App->font->CalcSize(Text, ret->UI_Rect.w, ret->UI_Rect.h);
+		//App->font->CalcSize(Text, ret->UI_Rect.w, ret->UI_Rect.h);
 		UI_Elements_List.add(ret);
 		ret->CurrentRect = &ret->UI_Rect;
 		if (Parent != nullptr) {
@@ -208,8 +208,8 @@ void UI_Element::Score(int score) {
 
 	char score_Text[10];
 	sprintf_s(score_Text, "%d", score); //warning: deprecated
-	App->font->CalcSize(score_Text, UI_Rect.w, UI_Rect.h);
-	texture = App->font->Print(score_Text);
+	//App->font->CalcSize(score_Text, UI_Rect.w, UI_Rect.h);
+	//texture = App->font->Print(score_Text);
 }
 
 
@@ -217,8 +217,8 @@ void UI_Element::Time(int time) {
 
 	char score_Text[10];
 	sprintf_s(score_Text, "%02i", time); //warning: deprecated
-	App->font->CalcSize(score_Text, UI_Rect.w, UI_Rect.h);
-	texture = App->font->Print(score_Text);
+	//App->font->CalcSize(score_Text, UI_Rect.w, UI_Rect.h);
+	//texture = App->font->Print(score_Text);
 }
 
 

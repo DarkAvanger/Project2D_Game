@@ -9,6 +9,7 @@
 struct SDL_Texture;
 struct MapData;
 class Player;
+class UI_Element;
 
 enum LEVELS {
 
@@ -51,10 +52,18 @@ public:
 	void IterateLevel(int level_change);
 
 	//Used to change the actual level
-	void ChangeLevel(int level_change);
+	void ChangeLevel(int level_change, int increment = 1);
 
 	//Load Map Objects
 	bool LoadObjects(const char*file_name);
+
+	//Load & Save
+	bool Load(pugi::xml_node& data);
+
+	//Save Game State
+	bool Save(pugi::xml_node& data) const;
+
+	void CreateUI_Elements();
 
 public:
 
@@ -74,8 +83,121 @@ public:
 	//Player
 	Player *Player = nullptr;
 
+	Timer Level1_Timer;
+	Timer Level2_Timer;
+	int pause_time1 = 0;
+	int pause_time2 = 0;
+
+
+	UI_Element* gameName = nullptr;
+
+	UI_Element* quitButton = nullptr;
+	UI_Element* labelQuitButton = nullptr;
+
+	UI_Element* playButton = nullptr;
+	UI_Element* labelPlayButton = nullptr;
+
+	UI_Element* continueButton = nullptr;
+	UI_Element* labelContinueButton = nullptr;
+
+	UI_Element* webPageButton = nullptr;
+	UI_Element* iconWebPageButton = nullptr;
+
+	UI_Element* settingsButton = nullptr;
+	UI_Element* labelSettingsButton = nullptr;
+
+	UI_Element* settingsButton2 = nullptr;
+	UI_Element* labelSettingsButton2 = nullptr;
+
+	UI_Element* settingsPanel = nullptr;
+	UI_Element* labelSettingsPanel = nullptr;
+
+	UI_Element* closeWinButon = nullptr;
+	UI_Element* iconCloseWinButton = nullptr;
+
+	UI_Element* closeCreditsPanel = nullptr;
+	UI_Element* iconCloseCreditsPanel = nullptr;
+
+	UI_Element* closePauseButon = nullptr;
+	UI_Element* iconClosePauseButton = nullptr;
+
+	UI_Element* creditButton = nullptr;
+	UI_Element* labelcreditButton = nullptr;
+
+	UI_Element* slideMusic = nullptr;
+	UI_Element* slideSFX = nullptr;
+
+	UI_Element* thumbMusic = nullptr;
+	UI_Element* thumbSFX = nullptr;
+
+
+	UI_Element* labelMusic = nullptr;
+	UI_Element* labelSFX = nullptr;
+
+	UI_Element* lifeBar = nullptr;
+	UI_Element* lifeBarBackground = nullptr;
+
+	UI_Element* coinsbarBackfround = nullptr;
+	UI_Element* labelCoins = nullptr;
+
+	UI_Element* labelSeconds;
+	UI_Element* labelMinutes;
+	UI_Element* labelBetSecMin;
+
+	UI_Element* loadButton = nullptr;
+	UI_Element* labelLoadButton = nullptr;
+
+	UI_Element* resumeButton = nullptr;
+	UI_Element* labelResumeButton = nullptr;
+
+	UI_Element* pauseButton = nullptr;
+	UI_Element* iconPauseButton = nullptr;
+
+	UI_Element* returnMainMenuButton = nullptr;
+	UI_Element* labelreturnMainMenuButton = nullptr;
+
+	UI_Element* BloodAlert = nullptr;
+
+	UI_Element* scoreText = nullptr;
+	UI_Element* scoreTextBackground = nullptr;
+
+	int bloodalpha = 255;
+	SDL_Texture* bloodTex = nullptr;
+
+	UI_Element* pausePanel = nullptr;
+	UI_Element* creditsPanel = nullptr;
+
+	UI_Element* githubButonlucho = nullptr;
+	UI_Element* icongitHubButonlucho = nullptr;
+
+	UI_Element* githubButonRoger = nullptr;
+	UI_Element* icongitHubButonRoger = nullptr;
+
+	UI_Element* iconToSave = nullptr;
+
+	UI_Element* labelCreatorsofGame = nullptr;
+	UI_Element* labelLuchoAndRoger = nullptr;
+	UI_Element* PathfindingProgramer = nullptr;
+	UI_Element* GUI_Programer = nullptr;
+	UI_Element* MainArtist = nullptr;
+	UI_Element* Roger = nullptr;
+	UI_Element* Lucho = nullptr;
+	UI_Element* License = nullptr;
+
+	List<UI_Element*> UI_Elements_List;
+	List<UI_Element*> UI_Elements_List_Playing;
+
+
+	iPoint lastMousePos = { 0,0 };
+	iPoint newMousePos = { 0,0 };
+
+	bool onAction = false;
+	bool onTopSomething = false;
+	bool pausedGame = false;
+
 private:
 
+	SDL_Color None = { 255,255,255,255 };
 	MapData Intro_map;
 	MapData Level1_map;
 	MapData Level2_map;
