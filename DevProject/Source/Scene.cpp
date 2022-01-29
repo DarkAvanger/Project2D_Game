@@ -404,8 +404,8 @@ bool Scene::Update(float dt)
 
 	}
 
-	if (currentLevel == MAIN_MENU && App->input->GetKey(SDL_SCANCODE_RETURN) == KEY_DOWN && !Change_Level)
-		Change_Level = true;
+	//if (currentLevel == MAIN_MENU && App->input->GetKey(SDL_SCANCODE_RETURN) == KEY_DOWN && !Change_Level)
+		//Change_Level = true;
 
 	
 	if (App->input->GetKey(SDL_SCANCODE_F11) == KEY_DOWN) {
