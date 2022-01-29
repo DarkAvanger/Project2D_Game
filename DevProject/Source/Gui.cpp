@@ -211,7 +211,7 @@ bool UI_Element::isParent() {
 void UI_Element::Score(int score) {
 
 	char score_Text[10];
-	sprintf_s(score_Text, "%d", score); //warning: deprecated
+	sprintf_s(score_Text, "%d", score); 
 	App->font->CalcSize(score_Text, UI_Rect.w, UI_Rect.h);
 	texture = App->font->Print(score_Text);
 }
@@ -220,7 +220,7 @@ void UI_Element::Score(int score) {
 void UI_Element::Time(int time) {
 
 	char score_Text[10];
-	sprintf_s(score_Text, "%02i", time); //warning: deprecated
+	sprintf_s(score_Text, "%02i", time); 
 	App->font->CalcSize(score_Text, UI_Rect.w, UI_Rect.h);
 	texture = App->font->Print(score_Text);
 }

@@ -1,6 +1,6 @@
 
-#ifndef __j1GUI_H__
-#define __j1GUI_H__
+#ifndef __GUI_H__
+#define __GUI_H__
 #define _CRT_SECURE_NO_WARNINGS
 
 
