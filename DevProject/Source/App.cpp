@@ -38,7 +38,6 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	pathfinding = new PathFinding();
 	collisions = new Collisions();
 	particles = new Particles();
-	fade = new Fade();
 	entity_manager = new EntityManager();
 	font = new Fonts();
 	gui = new Gui();
@@ -51,15 +50,18 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 
 	AddModule(map);
 	AddModule(pathfinding);
-	
-	AddModule(scene);
-	AddModule(entity_manager);
-	AddModule(particles);
+
+
 	AddModule(collisions);
 	AddModule(font);
-	AddModule(gui);
-	AddModule(fade);
 
+	AddModule(gui);
+	AddModule(scene);
+	AddModule(particles);
+	AddModule(entity_manager);
+
+
+	AddModule(fade);
 	AddModule(render);
 }
 

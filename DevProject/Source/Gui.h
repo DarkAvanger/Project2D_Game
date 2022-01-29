@@ -105,6 +105,7 @@ public:
 	SDL_Rect UI_Rect_Pushed;
 	SDL_Rect* CurrentRect;
 	SDL_Texture* texture;
+	
 
 	List<UI_Element*> Child_List;
 	UI_Element* Parent = nullptr;
