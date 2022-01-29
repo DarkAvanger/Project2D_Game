@@ -151,8 +151,8 @@ void UI_Element::Draw() {
 		App->render->Blit(texture, Position.x, Position.y, CurrentRect, false, angle, 0, 0, SDL_FLIP_NONE, scale);
 	else
 		App->render->Blit(texture, Position.x, Position.y, CurrentRect, 1.0f, angle, 0, 0, SDL_FLIP_NONE, scale);
-	/*if (App->gui->Debug == true)
-		App->render->DrawQuad({ Position.x,Position.y,UI_Rect.w,UI_Rect.h }, 255, 0, 0, 255, false, false, scale);*/
+	if (App->gui->Debug == true)
+		App->render->DrawQuad({ Position.x,Position.y,UI_Rect.w,UI_Rect.h }, 255, 0, 0, 255, false, false, scale);
 
 }
 

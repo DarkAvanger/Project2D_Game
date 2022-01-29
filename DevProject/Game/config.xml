@@ -27,5 +27,9 @@
   </map>
 
   <music intro="audio\music\Intro.ogg" level="audio\music\Level.ogg"/>
+  
+  <gui>
+    <atlas file="gui/1.png"/>
+  </gui>	
 
 </config>
