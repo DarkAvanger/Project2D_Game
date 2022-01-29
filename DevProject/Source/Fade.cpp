@@ -7,6 +7,7 @@
 #include "SDL/include/SDL_timer.h"
 #include "Player.h"
 #include "Window.h"
+#include "Gui.h"
 
 
 Fade::Fade()
@@ -23,15 +24,22 @@ bool Fade::Start()
 {
 	LOG("Preparing Fade Screen");
 	SDL_SetRenderDrawBlendMode(App->render->renderer, SDL_BLENDMODE_BLEND);
+	loadingTex = App->gui->GetAtlas();
+
 	return true;
 }
 
-// Draw background
+// Update: draw background
 bool Fade::Update(float dt)
 {
+	return true;
+}
+
+
+bool Fade::PostUpdate() {
+
 
 	bool ret = true;
-
 	if (current_step != fade_step::none) {
 		Uint32 now = SDL_GetTicks() - start_time;
 		float normalized = MIN(1.0f, (float)now / (float)total_time);
@@ -54,16 +62,20 @@ bool Fade::Update(float dt)
 		{
 			normalized = 1.0f - normalized;
 
-			if (now >= total_time)
+			if (now >= total_time) {
 				current_step = fade_step::none;
+			}
 		} break;
 		}
 
 		SDL_SetRenderDrawColor(App->render->renderer, 0, 0, 0, (Uint8)(normalized * 255.0f));
 		SDL_RenderFillRect(App->render->renderer, &screen);
+		App->render->Blit(loadingTex, 310, 250, &LoadingRect, false);
 	}
 	return ret;
+
 }
+
 
 bool Fade::Fade2(float time)
 {

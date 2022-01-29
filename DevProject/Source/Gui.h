@@ -1,6 +1,6 @@
 
-#ifndef __GUI_H__
-#define __GUI_H__
+#ifndef __j1GUI_H__
+#define __j1GUI_H__
 #define _CRT_SECURE_NO_WARNINGS
 
 
@@ -10,14 +10,10 @@
 #include "Fonts.h"
 #include "Audio.h"
 
-#include "Entity.h"
-#include "DynArray.h"
-#include "Animation.h"
-#include "List.h"
-#include "Pathfinding.h"
-
 
 #define CURSOR_WIDTH 2
+
+// TODO 1: Create your structure of classes
 
 enum UI_Type {
 
@@ -164,6 +160,7 @@ public:
 
 	UI_Element* Add_UIElement(UI_Type type, iPoint position, SDL_Rect Image_Rect, Button_Logic = NONE_LOGIC, SDL_Rect Image_Rect_Active = NULL_RECT, SDL_Rect ButtonPush = NULL_RECT, float scale = 1.0f, SDL_Color Color = { 255,255,255,255 }, UI_Element* Parent = nullptr, const char* Text = nullptr);
 
+	//UI_Element* Add_UIElement(UI_Type type, iPoint position, const char* Text = nullptr, UI_Element* Parent = nullptr);
 
 	List<UI_Element*> UI_Elements_List;
 	UI_Element* last;
@@ -180,4 +177,4 @@ private:
 	SString atlas_file_name;
 };
 
-#endif // __GUI_H__
+#endif // __j1GUI_H__

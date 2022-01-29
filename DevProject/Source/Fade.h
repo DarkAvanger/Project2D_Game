@@ -18,7 +18,7 @@ public:
 
 	bool Start();
 	bool Update(float dt);
-	//bool PostUpdate();
+	bool PostUpdate();
 	bool Fade2(float time = 2.0f);
 
 	SDL_Texture* loadingTex;
