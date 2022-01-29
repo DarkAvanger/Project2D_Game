@@ -8,6 +8,7 @@
 #include "App.h"
 
 struct SDL_Rect;
+class UI_Element;
 
 class Fade : public Module
 {
@@ -17,8 +18,12 @@ public:
 
 	bool Start();
 	bool Update(float dt);
+	//bool PostUpdate();
 	bool Fade2(float time = 2.0f);
 
+	SDL_Texture* loadingTex;
+
+	SDL_Rect LoadingRect = { 724,903,277,41 };
 
 	enum fade_step
 	{

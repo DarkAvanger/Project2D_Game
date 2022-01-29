@@ -18,6 +18,8 @@
 #include "App.h"
 #include "EntityManager.h"
 #include "List.h"
+#include "Gui.h"
+#include "Fonts.h"
 
 
 // Constructor
@@ -38,6 +40,9 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	particles = new Particles();
 	fade = new Fade();
 	entity_manager = new EntityManager();
+	font = new Fonts();
+	gui = new Gui();
+	fade = new Fade();
 
 	AddModule(input);
 	AddModule(win);

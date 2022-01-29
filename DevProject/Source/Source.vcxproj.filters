@@ -70,6 +70,12 @@
     <ClCompile Include="PugiXml\src\pugixml.cpp">
       <Filter>Pugi</Filter>
     </ClCompile>
+    <ClCompile Include="Fonts.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Gui.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -164,6 +170,12 @@
     </ClInclude>
     <ClInclude Include="PugiXml\src\pugixml.hpp">
       <Filter>Pugi</Filter>
+    </ClInclude>
+    <ClInclude Include="Gui.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Fonts.h">
+      <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

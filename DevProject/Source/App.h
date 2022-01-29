@@ -22,6 +22,8 @@ class Fade;
 class PathFinding;
 class Particles;
 class EntityManager;
+class Fonts;
+class Gui;
 
 class j1App
 {
@@ -107,6 +109,8 @@ public:
 	PathFinding*		pathfinding;
 	Particles*		particles;
 	EntityManager*	entity_manager;
+	Fonts*			font = NULL;
+	Gui*			gui = NULL;
 
 private:
 
